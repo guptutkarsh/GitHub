@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 </head>
 <script>
-function showUser()
+function showUser(x)
 {
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -21,47 +21,58 @@ xmlhttp.onreadystatechange=function()
     document.getElementById("txt").innerHTML=xmlhttp.responseText;
     }
   }
-xmlhttp.open("GET","getuser.php?",true);
+xmlhttp.open("POST",x,true);
 xmlhttp.send();
 }
 </script>
-</head>
 <script src="jquery-1.10.2.js"></script>
-<body onLoad="showUser()">
-<p id="para" onclick="$(this).hide();"> WELCOME:</p>
+<script type="text/javascript">
+$(window).load(function() {
+var y=window.opener.document.getElementById('name').value;
+var w=window.opener.document.getElementById('pwd').value;
+document.getElementById("para").innerHTML+=y;
+document.getElementById("para1").innerHTML+=y;   
+document.getElementById("para2").innerHTML+=w; 
+});</script>
+
+
+<body onLoad="showUser('getuser.php?')">
+<p id="para" name="names"> WELCOME:</p>
 <p id="para1"></p>
-<form>
+<input type="hidden" id="para2" name="hide">
+<button type="button" onClick="avail()">check availability</button><br/>
+<br>
 <table border="4">
 <tr>
-<th>Room No 1 <input type ="button" id ="Room1" onClick="change('Room 1')" value="Block"/> </th>
-<th>Room No 2 <input type ="button" id="Room2" value="Block" onClick="change('Room 2')"/> </th>
-<th>Room No 3 <input type ="button" id="Room3" value="Block" onClick="change('Room 3')"/> </th>
-<th>Room No 4 <input type ="button" value="Block" onClick="change('Room 4')"/> </th>
-<th>Room No 5 <input type ="button" value="Block" onClick="change('Room 5')"/> </th>
+<th>Room No 1 <input type ="button" id ="Room1" onClick="change('Room1')" value="Block"/> </th>
+<th>Room No 2 <input type ="button" id="Room2" value="Block" onClick="change('Room2')"/> </th>
+<th>Room No 3 <input type ="button" id="Room3" value="Block" onClick="change('Room3')"/> </th>
+<th>Room No 4 <input type ="button"id="Room4" value="Block" onClick="change('Room4')"/> </th>
+<th>Room No 5 <input type ="button" id="Room5"value="Block" onClick="change('Room5')"/> </th>
 </tr>
 <tr>
-<th>Room No 6 <input type ="button"  value="Block" onClick="change('Room 6')"/> </th>
-<th>Room No 7 <input type ="button"  value="Block" onClick="change('Room 7')"/> </th>
-<th>Room No 8 <input type ="button"  value="Block" onClick="change('Room 8')"/> </th>
-<th>Room No 9 <input type ="button"  value="Block" onClick="change('Room 9')"/> </th>
-<th>Room No 10 <input type ="button" value="Block" onClick="change('Room 10')"/> </th>
+<th>Room No 6 <input type ="button" id="Room6" value="Block" onClick="change('Room6')"/> </th>
+<th>Room No 7 <input type ="button" id="Room7" value="Block" onClick="change('Room7')"/> </th>
+<th>Room No 8 <input type ="button" id="Room8" value="Block" onClick="change('Room8')"/> </th>
+<th>Room No 9 <input type ="button"  id="Room9"value="Block" onClick="change('Room9')"/> </th>
+<th>Room No 10 <input type ="button" id="Room10"value="Block" onClick="change('Room10')"/> </th>
 </tr>
 <tr>
-<th>Room No 11<input type ="button" value="Block" onClick="change('Room 11')"/> </th>
-<th>Room No 12 <input type ="button" value="Block" onClick="change('Room 12')"/> </th>
-<th>Room No 13<input type ="button" value="Block" onClick="change('Room 13')"/> </th>
-<th>Room No 14<input type ="button" value="Block" onClick="change('Room 14')"/> </th>
-<th>Room No 15 <input type ="button" value="Block" onClick="change('Room 15')"/> </th>
+<th>Room No 11<input type ="button" id="Room11"value="Block" onClick="change('Room 11')"/> </th>
+<th>Room No 12 <input type ="button" id="Room12"value="Block" onClick="change('Room 12')"/> </th>
+<th>Room No 13<input type ="button" id="Room13"value="Block" onClick="change('Room 13')"/> </th>
+<th>Room No 14<input type ="button" id="Room14"value="Block" onClick="change('Room 14')"/> </th>
+<th>Room No 15 <input type ="button" id="Room15"value="Block" onClick="change('Room 15')"/> </th>
 </tr>
 <tr>
-<th>Room No 16 <input type ="button" value="Block" onClick="change('Room 16')"/> </th>
-<th>Room No 17 <input type ="button" value="Block" onClick="change('Room 17')"/> </th>
-<th>Room No 18 <input type ="button" value="Block" onClick="change('Room 18')"/> </th>
-<th>Room No 19 <input type ="button" value="Block" onClick="change('Room 19')"/> </th>
-<th>Room No 20 <input type ="button" value="Block" onClick="change('Room 20')"/> </th>
+<th>Room No 16 <input type ="button" id="Room16"value="Block" onClick="change('Room 16')"/> </th>
+<th>Room No 17 <input type ="button" id="Room17"value="Block" onClick="change('Room 17')"/> </th>
+<th>Room No 18 <input type ="button" id="Room18"value="Block" onClick="change('Room 18')"/> </th>
+<th>Room No 19 <input type ="button" id="Room19"value="Block" onClick="change('Room 19')"/> </th>
+<th>Room No 20 <input type ="button" id="Room20"value="Block" onClick="change('Room 20')"/> </th>
 </tr>
 </table>
-<button type="button" onClick="avail()">check availability</button>
+
 </form>
 <input type="hidden"  value="a" id="txt" ></p>
 <script type="text/javascript" src="hostel.js"></script>

@@ -10,7 +10,7 @@ $sql="SELECT * FROM user WHERE id = 'yes'";
 $result = mysql_query($sql);
 while($row = mysql_fetch_array($result))
   {
-  echo $row['room no']." ";
+  echo $row['room']." ";
   echo "<br />";
   }
 

@@ -10,5 +10,10 @@ function take(){
 	}
 	if(a==0)
 	{var win1=window.open("hostel.html");
-		}}
+		showing();}}
+	function showing()
+	{var check=document.getElementById("txit").textContent;
 	
+	if(check=="")
+	alert("welcome  "+document.getElementById("name").value+"\n"+"Please wait while u are being redirected");
+	}
