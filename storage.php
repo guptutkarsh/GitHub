@@ -11,7 +11,7 @@ $room=$_GET['room'];
 $room=mysql_real_escape_string($room);
 mysql_connect("localhost","root","") or die (mysql_error());
 mysql_select_db("utkarsh") or die(mysql_error());
-$strSQL = "INSERT INTO user(Name,id,room) VALUES('$name','yes','$room')";
+$strSQL = "INSERT INTO user(Name,id,room,password) VALUES('$name','yes','$room','$pwd')";
  mysql_query($strSQL) or die(mysql_error());?>
 <body>
 </body>

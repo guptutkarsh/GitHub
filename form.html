@@ -3,38 +3,15 @@
 <head>
 <meta charset="utf-8">
 </head>
-<script>
-function showUser()
-{var name=document.getElementById("name").value;
- var pwd=document.getElementById("pwd").value;
- var queryString = "?name=" + name + "&pwd=" + pwd;
-	if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("txit").innerHTML=xmlhttp.responseText;
- }								
-  }
-xmlhttp.open("GET","users.php" + queryString,true);
-xmlhttp.send();
-}
-</script>
+
 
 <script src="form.js"></script>
 <body>
 <p id="txit"></p>
 <form>
 Name:<input type="text" name="Name" id="name"/>
-Password:<input type="password" id="pwd" onChange="showUser()"/>
-<button type="button" onClick="take()">verify</button>
+Password:<input type="password" id="pwd" />
+<button type="button" onClick="showing()">verify</button>
 </form>
 </body>
 </html>

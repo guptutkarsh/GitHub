@@ -12,11 +12,14 @@ mysql_select_db("utkarsh") or die(mysql_error());
 $sql="SELECT * FROM user WHERE Name = '$name'";
 $result = mysql_query($sql);
 while($row = mysql_fetch_array($result))
-  {if($row['room']!=" ")
+  {
+  if($row['room']!=" ")
   {echo "u already have ".$row['room'];
   if($row['password']!=$pwd)
   echo "wrong password"."<br>"."acess denied";}
-  }?>
+    }
+	
+  ?>
 <body>
 </body>
 </html>
